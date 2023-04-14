@@ -1,6 +1,7 @@
 package com.servico;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
@@ -12,9 +13,18 @@ import javax.jws.soap.SOAPBinding;
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface MensagemServico {
     
-    @WebMethod
+    /**
+     * Operação de Web service
+     * @return 
+     */
+    @WebMethod(operationName = "getMensagem")
     public String getMensagem();
     
-    @WebMethod
-    public void setMensagem(String mensagem);
+    /**
+     * Operação de Web service
+     * @param mensagem
+     */
+
+    @WebMethod(operationName = "setMensagem")
+    public void setMensagem(@WebParam(name = "mensagem") String mensagem);
 }
